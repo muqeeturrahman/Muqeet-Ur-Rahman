@@ -1,0 +1,508 @@
+"use client";
+
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useMemo, useRef, useState } from "react";
+import { ExternalLink, ArrowUpRight, Layers } from "lucide-react";
+import SectionHeader from "./SectionHeader";
+
+type Category = "all" | "ai" | "fullstack" | "frontend";
+
+interface Project {
+  title: string;
+  role: string;
+  company: string;
+  summary: string;
+  metric: { value: string; label: string };
+  liveUrl?: string;
+  category: Exclude<Category, "all">;
+  stack: string[];
+  accent: string;
+  featured?: boolean;
+}
+
+const projects: Project[] = [
+  {
+    title: "Routra",
+    role: "React Native · AI Integration",
+    company: "Right Tail Corporation",
+    summary:
+      "An AI-powered daily-planner for iOS and Android. The assistant turns goals into structured, achievable action plans and surfaces real productivity insights — clean, ad-free, distraction-free by design.",
+    metric: { value: "iOS + Android", label: "Native" },
+    liveUrl: "https://routra.ai/",
+    category: "ai",
+    stack: ["React Native", "TypeScript", "Claude AI", "Productivity"],
+    accent: "from-violet-500/40 via-fuchsia-500/25 to-transparent",
+    featured: true,
+  },
+  {
+    title: "TestPower",
+    role: "Full-Stack · RAG Pipeline",
+    company: "Right Tail Corporation",
+    summary:
+      "Products site for a 400+ instrument distributor with an AI Instrument Finder. Docs parsed via Gemini, embedded with OpenAI and served through a retrieval pipeline.",
+    metric: { value: "400+", label: "Instruments Indexed" },
+    liveUrl: "https://www.testpower.se/",
+    category: "ai",
+    stack: ["Next.js", "Gemini", "OpenAI", "Google Cloud", "RAG"],
+    accent: "from-fuchsia-500/40 via-rose-500/25 to-transparent",
+  },
+  {
+    title: "SeatMap Ticketing Engine",
+    role: "Full-Stack Engineer",
+    company: "Saasifylabs",
+    summary:
+      "Real-time interactive seat map with hold-and-reserve semantics and live concurrency across thousands of simultaneous visitors.",
+    metric: { value: "Real-Time", label: "Concurrency" },
+    category: "fullstack",
+    stack: ["Next.js", "NestJS", "WebSockets", "Redis"],
+    accent: "from-emerald-500/35 via-teal-500/20 to-transparent",
+  },
+  {
+    title: "Escrow Payment Platform",
+    role: "Full-Stack Engineer",
+    company: "Client Engagement",
+    summary:
+      "Escrow-first payment architecture with staged fund release, dispute flows, KYC gating and full audit trails for high-trust marketplaces.",
+    metric: { value: "Escrow", label: "Payment Rails" },
+    category: "fullstack",
+    stack: ["NestJS", "Stripe", "PostgreSQL", "RBAC"],
+    accent: "from-indigo-500/40 via-violet-500/25 to-transparent",
+  },
+  {
+    title: "EdTech LMS",
+    role: "Full-Stack Engineer",
+    company: "Madi Devs",
+    summary:
+      "Learning platform with real-time chat, Google Classroom integration, cohort analytics and instructor dashboards.",
+    metric: { value: "Multi-Tenant", label: "Architecture" },
+    category: "fullstack",
+    stack: ["Next.js", "NestJS", "MongoDB", "Socket.IO"],
+    accent: "from-sky-500/40 via-blue-500/20 to-transparent",
+  },
+  {
+    title: "Enterprise Billing Dashboard",
+    role: "Full-Stack Engineer",
+    company: "Madi Devs",
+    summary:
+      "Billing operations dashboard with automated PDF invoicing, subscription lifecycle events and reconciliation reporting.",
+    metric: { value: "Auto-PDF", label: "Invoicing" },
+    category: "fullstack",
+    stack: ["Next.js", "NestJS", "PostgreSQL", "Puppeteer"],
+    accent: "from-amber-500/35 via-orange-500/20 to-transparent",
+  },
+  {
+    title: "Shopify Profit Analytics",
+    role: "Full-Stack Engineer",
+    company: "Right Tail Corporation",
+    summary:
+      "Multi-store SaaS with cost attribution, ad-spend sync and per-cohort profit reporting for Shopify merchants.",
+    metric: { value: "Multi-Store", label: "SaaS" },
+    category: "fullstack",
+    stack: ["Next.js", "NestJS", "Shopify API", "Postgres"],
+    accent: "from-lime-500/35 via-emerald-500/20 to-transparent",
+  },
+  {
+    title: "Zero-Fee Ticketing",
+    role: "Full-Stack Engineer",
+    company: "Right Tail Corporation",
+    summary:
+      "Zero-fee event platform with native iOS/Android companion apps, QR check-in and organizer analytics.",
+    metric: { value: "0% Fees", label: "Model" },
+    category: "fullstack",
+    stack: ["Next.js", "React Native", "NestJS"],
+    accent: "from-cyan-500/35 via-sky-500/20 to-transparent",
+  },
+  {
+    title: "Commerce Multi-Vertical",
+    role: "Full-Stack Engineer",
+    company: "Saasifylabs",
+    summary:
+      "Configurable commerce platform serving several verticals from a shared core with multi-site API syndication and per-tenant theming.",
+    metric: { value: "N-Verticals", label: "Shared Core" },
+    category: "fullstack",
+    stack: ["Next.js", "NestJS", "PostgreSQL"],
+    accent: "from-purple-500/35 via-fuchsia-500/20 to-transparent",
+  },
+  {
+    title: "Pakistan Post Web",
+    role: "Frontend Engineer (Contract)",
+    company: "Pakistan Post HQ",
+    summary:
+      "Frontend modernization for the Pakistan Post public web platform with real-time parcel tracking and a REST caching layer.",
+    metric: { value: "Real-Time", label: "Parcel Tracking" },
+    category: "frontend",
+    stack: ["React", "Tailwind", "REST", "Caching"],
+    accent: "from-emerald-500/35 via-lime-500/20 to-transparent",
+  },
+  {
+    title: "3D Character Customizer",
+    role: "Frontend Engineer",
+    company: "Saasifylabs",
+    summary:
+      "Interactive 3D character customizer with real-time mesh swaps, texture editing and stage-lit environments in the browser.",
+    metric: { value: "WebGL", label: "3D Runtime" },
+    category: "frontend",
+    stack: ["Three.js", "Babylon.js", "WebGL"],
+    accent: "from-rose-500/35 via-red-500/20 to-transparent",
+  },
+  {
+    title: "Motion Design System",
+    role: "Frontend Engineer",
+    company: "Personal",
+    summary:
+      "Design system with tokenized theming, Framer Motion primitives and accessible interaction patterns across dashboards.",
+    metric: { value: "Tokenized", label: "Design System" },
+    category: "frontend",
+    stack: ["Tailwind", "Framer Motion", "TypeScript"],
+    accent: "from-indigo-500/35 via-blue-500/20 to-transparent",
+  },
+];
+
+const filters: { id: Category; label: string }[] = [
+  { id: "all", label: "All Work" },
+  { id: "ai", label: "AI-Powered" },
+  { id: "fullstack", label: "Full-Stack" },
+  { id: "frontend", label: "Frontend & 3D" },
+];
+
+export default function CaseStudies() {
+  const [active, setActive] = useState<Category>("all");
+
+  const filtered = useMemo(
+    () =>
+      active === "all"
+        ? projects
+        : projects.filter((p) => p.category === active),
+    [active]
+  );
+
+  const featured = filtered.find((p) => p.featured) ?? filtered[0];
+  const rest = filtered.filter((p) => p !== featured);
+
+  const totalTech = useMemo(
+    () => new Set(projects.flatMap((p) => p.stack)).size,
+    []
+  );
+
+  return (
+    <section
+      id="projects"
+      aria-label="Case Studies"
+      className="relative w-full overflow-hidden py-24 sm:py-28 lg:py-32"
+    >
+      <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+        <SectionHeader
+          eyebrow="Case Studies"
+          title="Featured"
+          accent="Work"
+          subtitle="From AI-powered automation agents to production-scale platforms — systems engineered for real-world impact."
+        />
+
+        <div className="mb-10 flex flex-wrap items-center justify-center gap-6">
+          <Metric value={String(projects.length)} label="Projects" />
+          <span className="h-8 w-px bg-white/10" />
+          <Metric value={`${totalTech}+`} label="Technologies" />
+          <span className="h-8 w-px bg-white/10" />
+          <Metric value="4+" label="Years Shipping" />
+        </div>
+
+        <div className="mx-auto mb-12 flex max-w-2xl flex-wrap items-center justify-center gap-2">
+          {filters.map((f) => {
+            const count =
+              f.id === "all"
+                ? projects.length
+                : projects.filter((p) => p.category === f.id).length;
+            const isActive = active === f.id;
+            return (
+              <motion.button
+                key={f.id}
+                onClick={() => setActive(f.id)}
+                whileHover={{ y: -2 }}
+                className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs uppercase tracking-[0.2em] transition ${
+                  isActive
+                    ? "border-white/40 bg-white text-black"
+                    : "border-white/10 bg-white/[0.03] text-white/70 hover:border-white/25 hover:text-white"
+                }`}
+              >
+                {f.label}
+                <span
+                  className={`grid h-5 min-w-5 place-items-center rounded-full px-1.5 text-[10px] ${
+                    isActive
+                      ? "bg-black/10 text-black/70"
+                      : "bg-white/10 text-white/60"
+                  }`}
+                >
+                  {count}
+                </span>
+              </motion.button>
+            );
+          })}
+        </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={active}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.4 }}
+            className="space-y-6"
+          >
+            {featured && <FeaturedCard project={featured} />}
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {rest.map((p, i) => (
+                <ProjectTile key={p.title} project={p} index={i} />
+              ))}
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}
+
+function useTilt() {
+  const ref = useRef<HTMLDivElement>(null);
+  const rx = useMotionValue(0);
+  const ry = useMotionValue(0);
+  const srx = useSpring(rx, { stiffness: 90, damping: 14 });
+  const sry = useSpring(ry, { stiffness: 90, damping: 14 });
+  const tiltX = useTransform(srx, (v) => `${v}deg`);
+  const tiltY = useTransform(sry, (v) => `${v}deg`);
+
+  const onMove = (e: React.MouseEvent) => {
+    if (!ref.current) return;
+    const r = ref.current.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    ry.set(px * 6);
+    rx.set(-py * 6);
+  };
+  const onLeave = () => {
+    rx.set(0);
+    ry.set(0);
+  };
+  return { ref, onMove, onLeave, tiltX, tiltY };
+}
+
+function FeaturedCard({ project }: { project: Project }) {
+  const { ref, onMove, onLeave, tiltX, tiltY } = useTilt();
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.6 }}
+      ref={ref}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      style={{ perspective: 1200 }}
+    >
+      <motion.article
+        style={{ rotateX: tiltX, rotateY: tiltY, transformStyle: "preserve-3d" }}
+        className="group relative overflow-hidden rounded-3xl border border-white/10 bg-neutral-950/70 backdrop-blur transition"
+      >
+        <div
+          aria-hidden
+          className={`absolute inset-0 bg-gradient-to-br opacity-70 ${project.accent}`}
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[radial-gradient(600px_circle_at_var(--x,50%)_var(--y,0),rgba(255,255,255,0.06),transparent_60%)]"
+        />
+
+        <div className="relative grid gap-8 p-8 sm:p-10 lg:grid-cols-[1.2fr_1fr] lg:p-14">
+          <div>
+            <div className="mb-4 flex items-center gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-white/60">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                Featured Project
+              </span>
+              <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">
+                {project.category === "ai"
+                  ? "AI · Automation"
+                  : project.category === "frontend"
+                  ? "Frontend · 3D"
+                  : "Full-Stack Platform"}
+              </span>
+            </div>
+
+            <h3 className="text-4xl font-light tracking-tight sm:text-5xl">
+              {project.title}
+            </h3>
+            <div className="mt-2 text-sm text-white/60">
+              {project.role} · {project.company}
+            </div>
+
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-white/75">
+              {project.summary}
+            </p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {project.stack.map((t) => (
+                <span
+                  key={t}
+                  className="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-[11px] text-white/75"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black transition hover:bg-white/85"
+                >
+                  Live Site
+                  <ExternalLink size={14} />
+                </a>
+              )}
+              <button className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-5 py-2.5 text-sm text-white/85 backdrop-blur hover:bg-white/[0.08] transition">
+                Read Case Study
+                <ArrowUpRight size={14} />
+              </button>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div
+              aria-hidden
+              className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/[0.08] to-transparent blur-2xl"
+            />
+            <div
+              style={{ transform: "translateZ(40px)" }}
+              className="relative flex h-full flex-col justify-between rounded-2xl border border-white/10 bg-neutral-950/60 p-6 backdrop-blur"
+            >
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.3em] text-white/40">
+                  Signature Metric
+                </div>
+                <div className="mt-2 bg-gradient-to-br from-white via-violet-200 to-fuchsia-300 bg-clip-text text-5xl font-extralight text-transparent sm:text-6xl">
+                  {project.metric.value}
+                </div>
+                <div className="mt-1 text-sm text-white/60">
+                  {project.metric.label}
+                </div>
+              </div>
+
+              <div className="mt-8 space-y-3">
+                {["Architecture", "Delivery", "Impact"].map((k, i) => (
+                  <div key={k} className="flex items-center gap-3 text-sm">
+                    <span className="grid h-6 w-6 place-items-center rounded-full border border-white/10 bg-white/5 text-[10px] text-white/70">
+                      {i + 1}
+                    </span>
+                    <span className="text-white/80">{k}</span>
+                    <div className="flex-1" />
+                    <span className="h-1 w-16 overflow-hidden rounded-full bg-white/5">
+                      <motion.span
+                        initial={{ width: 0 }}
+                        whileInView={{ width: ["85%", "95%", "90%"][i] }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: 0.2 + i * 0.1 }}
+                        className="block h-full rounded-full bg-gradient-to-r from-white/80 to-violet-300"
+                      />
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.article>
+    </motion.div>
+  );
+}
+
+function ProjectTile({ project, index }: { project: Project; index: number }) {
+  const { ref, onMove, onLeave, tiltX, tiltY } = useTilt();
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      style={{ perspective: 1000 }}
+    >
+      <motion.article
+        style={{ rotateX: tiltX, rotateY: tiltY, transformStyle: "preserve-3d" }}
+        className="group relative h-full overflow-hidden rounded-2xl border border-white/8 bg-neutral-950/60 p-6 backdrop-blur transition hover:border-white/20"
+      >
+        <div
+          aria-hidden
+          className={`absolute inset-0 -z-[1] bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100 ${project.accent}`}
+        />
+        <div className="absolute -right-8 -top-8 h-40 w-40 rounded-full bg-white/[0.03] blur-3xl transition group-hover:bg-white/[0.06]" />
+
+        <div className="mb-4 flex items-center gap-2 text-[10px] uppercase tracking-[0.3em] text-white/40">
+          <Layers size={12} /> Case Study
+        </div>
+
+        <h3 className="text-xl font-light">{project.title}</h3>
+        <div className="mt-1 text-[12px] text-white/60">
+          {project.role} · {project.company}
+        </div>
+
+        <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-white/65">
+          {project.summary}
+        </p>
+
+        <div className="mt-5 flex items-baseline gap-2">
+          <span className="text-2xl font-extralight text-white">
+            {project.metric.value}
+          </span>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">
+            {project.metric.label}
+          </span>
+        </div>
+
+        <div className="mt-5 flex flex-wrap gap-1.5">
+          {project.stack.slice(0, 4).map((t) => (
+            <span
+              key={t}
+              className="rounded-md border border-white/8 bg-white/[0.03] px-2 py-1 text-[10px] text-white/60"
+            >
+              {t}
+            </span>
+          ))}
+          {project.stack.length > 4 && (
+            <span className="rounded-md border border-white/8 bg-white/[0.03] px-2 py-1 text-[10px] text-white/40">
+              +{project.stack.length - 4}
+            </span>
+          )}
+        </div>
+
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-flex items-center gap-1 text-xs text-white/70 transition hover:text-white"
+          >
+            View live <ArrowUpRight size={12} className="transition group-hover:translate-x-0.5" />
+          </a>
+        )}
+      </motion.article>
+    </motion.div>
+  );
+}
+
+function Metric({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="text-center">
+      <div className="text-3xl font-extralight">{value}</div>
+      <div className="text-[10px] uppercase tracking-[0.3em] text-white/50">
+        {label}
+      </div>
+    </div>
+  );
+}
