@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-const UPWORK_URL = "https://www.upwork.com/freelancers/rohailsystems";
+const UPWORK_URL = "https://www.linkedin.com/in/muqeet-ur-rahman-141287167";
 
 export default function UpworkCTA() {
   return (

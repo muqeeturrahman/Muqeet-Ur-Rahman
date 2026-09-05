@@ -55,8 +55,8 @@ export default function Navbar() {
           className="text-sm tracking-wide text-white/90 hover:text-white transition"
           aria-label="Go to home"
         >
-          <span className="font-medium">Rohail</span>{" "}
-          <span className="text-white/60">Ahmed</span>
+          <span className="font-medium">Muqeet</span>{" "}
+          <span className="text-white/60">Ur Rahman</span>
         </button>
 
         <div className="hidden md:flex items-center gap-1">

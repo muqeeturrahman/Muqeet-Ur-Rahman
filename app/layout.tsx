@@ -10,7 +10,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title:
-    "Rohail Ahmed | Full-Stack Engineer & AI Automation Architect",
+    "Myqeet Ur Rahman | Full-Stack Engineer & AI Automation Architect",
   description:
     "Full-Stack Engineer & AI Automation Architect. Building production SaaS platforms, AI agents, and workflow automation with Next.js, NestJS, Claude AI, and n8n.",
 };

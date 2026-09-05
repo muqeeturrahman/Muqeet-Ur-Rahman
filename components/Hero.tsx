@@ -4,8 +4,8 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowRight, User2, Sparkles } from "lucide-react";
 import { useRef } from "react";
 
-const NAME_FIRST = "Rohail";
-const NAME_LAST = "Ahmed";
+const NAME_FIRST = "Muqeet";
+const NAME_LAST = "Ur Rahman";
 
 const STACK = [
   "Next.js",
@@ -263,7 +263,7 @@ export default function Hero() {
               View Case Studies
               <ArrowRight size={16} />
             </MagneticButton>
-            <MagneticButton href="#about" ariaLabel="Learn more about Rohail">
+            <MagneticButton href="#about" ariaLabel="Learn more about Muqeet Ur Rahman">
               <User2 size={14} />
               About Me
             </MagneticButton>

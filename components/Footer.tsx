@@ -5,18 +5,18 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <h3 className="text-2xl font-light">
-              Rohail <span className="text-white/60">Ahmed</span>
+              Muqeet <span className="text-white/60">Ur Rahman</span>
             </h3>
             <p className="mt-2 text-sm text-white/55">
               Full-Stack Engineer &amp; AI Automation Architect
             </p>
             <a
-              href="https://www.upwork.com/freelancers/rohailsystems"
+              href="https://www.linkedin.com/in/muqeet-ur-rahman-141287167"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-white/85 hover:bg-white/[0.06] transition"
             >
-              Hire Me on Upwork
+              LinkedIn
               <span className="text-white/40">→</span>
             </a>
           </div>

@@ -127,7 +127,7 @@ export default function About() {
             className="space-y-6"
           >
             <p className="text-white/75 leading-relaxed">
-              I&apos;m <span className="text-white">Rohail Ahmed</span>, a
+              I&apos;m <span className="text-white">Myqeet Ur Rahman</span>, a
               full-stack engineer and AI automation architect with 4+ years of
               experience shipping production-grade platforms and intelligent
               automation systems. My work spans database schemas, API contracts,
