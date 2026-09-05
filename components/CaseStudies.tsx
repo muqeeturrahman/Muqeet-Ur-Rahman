@@ -22,140 +22,163 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Routra",
-    role: "React Native · AI Integration",
-    company: "Right Tail Corporation",
+    title: "Senoa",
+    role: "Full-Stack · Blockchain",
+    company: "Senoa",
     summary:
-      "An AI-powered daily-planner for iOS and Android. The assistant turns goals into structured, achievable action plans and surfaces real productivity insights — clean, ad-free, distraction-free by design.",
-    metric: { value: "iOS + Android", label: "Native" },
-    liveUrl: "https://routra.ai/",
-    category: "ai",
-    stack: ["React Native", "TypeScript", "Claude AI", "Productivity"],
-    accent: "from-violet-500/40 via-fuchsia-500/25 to-transparent",
+      "Crypto-fintech platform for fiat-to-crypto and crypto-to-fiat transactions with secure payment and KYC flows.",
+    metric: { value: "Fiat ↔ Crypto", label: "Payments" },
+    liveUrl: "https://senoaapp.com/",
+    category: "fullstack",
+    stack: ["Node.js", "Blockchain", "Crypto", "KYC"],
+    accent: "from-emerald-500/40 via-cyan-500/25 to-transparent",
     featured: true,
+  },
+  {
+    title: "Chubb's Army",
+    role: "Full-Stack · Video Platform",
+    company: "Chubb's Army",
+    summary:
+      "High-performance social video platform with aggressive video preloading and caching for near-instant playback.",
+    metric: { value: "Preloaded", label: "Video Delivery" },
+    liveUrl: "https://www.chubbsarmy.com/",
+    category: "fullstack",
+    stack: ["Next.js", "Node.js", "Video Streaming", "Caching"],
+    accent: "from-orange-500/40 via-rose-500/25 to-transparent",
+  },
+
+  {
+    title: "Edbanz",
+    role: "Full-Stack · Academic CMS",
+    company: "Edbanz",
+    summary:
+      "Academic lifecycle platform connecting administration, teachers and students across branches, classrooms and operations.",
+    metric: { value: "Multi-Branch", label: "Architecture" },
+    liveUrl: "https://edbanz.com/",
+    category: "fullstack",
+    stack: ["Next.js", "Node.js", "MongoDB", "WebSockets"],
+    accent: "from-blue-500/40 via-cyan-500/25 to-transparent",
+  },
+
+  {
+    title: "Wondrfly",
+    role: "Full-Stack · Scalable Backend",
+    company: "Wondrfly",
+    summary:
+      "Scalable kids-program platform processing thousands of programs and supporting complex activity, provider and discovery workflows.",
+    metric: { value: "1000s", label: "Programs" },
+    liveUrl: "https://wondrfly.com",
+    category: "fullstack",
+    stack: ["Node.js", "NestJS", "MongoDB", "AWS","n8n"],
+    accent: "from-violet-500/40 via-indigo-500/25 to-transparent",
+  },
+  {
+    title: "FikaDuka",
+    role: "Full-Stack · B2B Commerce",
+    company: "FikaDuka",
+    summary:
+      "B2B commerce platform connecting vendors, distributors and retailers with streamlined wholesale ordering and product management.",
+    metric: { value: "B2B", label: "Commerce Platform" },
+    liveUrl: "https://www.fikaduka.com/",
+    category: "fullstack",
+    stack: ["Next.js", "Node.js", "PostgreSQL", "REST API"],
+    accent: "from-orange-500/40 via-amber-500/25 to-transparent",
   },
   {
     title: "TestPower",
     role: "Full-Stack · RAG Pipeline",
     company: "Right Tail Corporation",
     summary:
-      "Products site for a 400+ instrument distributor with an AI Instrument Finder. Docs parsed via Gemini, embedded with OpenAI and served through a retrieval pipeline.",
+      "AI-powered instrument discovery platform with document ingestion, embeddings and retrieval across 400+ products.",
     metric: { value: "400+", label: "Instruments Indexed" },
     liveUrl: "https://www.testpower.se/",
-    category: "ai",
-    stack: ["Next.js", "Gemini", "OpenAI", "Google Cloud", "RAG"],
+    category: "fullstack",
+    stack: ["Next.js", "Node.js", "Gemini", "OpenAI", "RAG"],
     accent: "from-fuchsia-500/40 via-rose-500/25 to-transparent",
   },
-  {
-    title: "SeatMap Ticketing Engine",
-    role: "Full-Stack Engineer",
-    company: "Saasifylabs",
-    summary:
-      "Real-time interactive seat map with hold-and-reserve semantics and live concurrency across thousands of simultaneous visitors.",
-    metric: { value: "Real-Time", label: "Concurrency" },
-    category: "fullstack",
-    stack: ["Next.js", "NestJS", "WebSockets", "Redis"],
-    accent: "from-emerald-500/35 via-teal-500/20 to-transparent",
-  },
-  {
-    title: "Escrow Payment Platform",
-    role: "Full-Stack Engineer",
-    company: "Client Engagement",
-    summary:
-      "Escrow-first payment architecture with staged fund release, dispute flows, KYC gating and full audit trails for high-trust marketplaces.",
-    metric: { value: "Escrow", label: "Payment Rails" },
-    category: "fullstack",
-    stack: ["NestJS", "Stripe", "PostgreSQL", "RBAC"],
-    accent: "from-indigo-500/40 via-violet-500/25 to-transparent",
-  },
-  {
-    title: "EdTech LMS",
-    role: "Full-Stack Engineer",
-    company: "Madi Devs",
-    summary:
-      "Learning platform with real-time chat, Google Classroom integration, cohort analytics and instructor dashboards.",
-    metric: { value: "Multi-Tenant", label: "Architecture" },
-    category: "fullstack",
-    stack: ["Next.js", "NestJS", "MongoDB", "Socket.IO"],
-    accent: "from-sky-500/40 via-blue-500/20 to-transparent",
-  },
-  {
-    title: "Enterprise Billing Dashboard",
-    role: "Full-Stack Engineer",
-    company: "Madi Devs",
-    summary:
-      "Billing operations dashboard with automated PDF invoicing, subscription lifecycle events and reconciliation reporting.",
-    metric: { value: "Auto-PDF", label: "Invoicing" },
-    category: "fullstack",
-    stack: ["Next.js", "NestJS", "PostgreSQL", "Puppeteer"],
-    accent: "from-amber-500/35 via-orange-500/20 to-transparent",
-  },
-  {
-    title: "Shopify Profit Analytics",
-    role: "Full-Stack Engineer",
-    company: "Right Tail Corporation",
-    summary:
-      "Multi-store SaaS with cost attribution, ad-spend sync and per-cohort profit reporting for Shopify merchants.",
-    metric: { value: "Multi-Store", label: "SaaS" },
-    category: "fullstack",
-    stack: ["Next.js", "NestJS", "Shopify API", "Postgres"],
-    accent: "from-lime-500/35 via-emerald-500/20 to-transparent",
-  },
-  {
-    title: "Zero-Fee Ticketing",
-    role: "Full-Stack Engineer",
-    company: "Right Tail Corporation",
-    summary:
-      "Zero-fee event platform with native iOS/Android companion apps, QR check-in and organizer analytics.",
-    metric: { value: "0% Fees", label: "Model" },
-    category: "fullstack",
-    stack: ["Next.js", "React Native", "NestJS"],
-    accent: "from-cyan-500/35 via-sky-500/20 to-transparent",
-  },
-  {
-    title: "Commerce Multi-Vertical",
-    role: "Full-Stack Engineer",
-    company: "Saasifylabs",
-    summary:
-      "Configurable commerce platform serving several verticals from a shared core with multi-site API syndication and per-tenant theming.",
-    metric: { value: "N-Verticals", label: "Shared Core" },
-    category: "fullstack",
-    stack: ["Next.js", "NestJS", "PostgreSQL"],
-    accent: "from-purple-500/35 via-fuchsia-500/20 to-transparent",
-  },
-  {
-    title: "Pakistan Post Web",
-    role: "Frontend Engineer (Contract)",
-    company: "Pakistan Post HQ",
-    summary:
-      "Frontend modernization for the Pakistan Post public web platform with real-time parcel tracking and a REST caching layer.",
-    metric: { value: "Real-Time", label: "Parcel Tracking" },
-    category: "frontend",
-    stack: ["React", "Tailwind", "REST", "Caching"],
-    accent: "from-emerald-500/35 via-lime-500/20 to-transparent",
-  },
-  {
-    title: "3D Character Customizer",
-    role: "Frontend Engineer",
-    company: "Saasifylabs",
-    summary:
-      "Interactive 3D character customizer with real-time mesh swaps, texture editing and stage-lit environments in the browser.",
-    metric: { value: "WebGL", label: "3D Runtime" },
-    category: "frontend",
-    stack: ["Three.js", "Babylon.js", "WebGL"],
-    accent: "from-rose-500/35 via-red-500/20 to-transparent",
-  },
-  {
-    title: "Motion Design System",
-    role: "Frontend Engineer",
-    company: "Personal",
-    summary:
-      "Design system with tokenized theming, Framer Motion primitives and accessible interaction patterns across dashboards.",
-    metric: { value: "Tokenized", label: "Design System" },
-    category: "frontend",
-    stack: ["Tailwind", "Framer Motion", "TypeScript"],
-    accent: "from-indigo-500/35 via-blue-500/20 to-transparent",
-  },
+
+{
+  title: "BioYapp",
+  role: "Full-Stack · Social Platform",
+  company: "Dignite Studios",
+  summary:
+    "Pharmaceutical social platform combining professional networking, diverse content feeds, job boards and community-driven interactions.",
+  metric: { value: "Multi-Feature", label: "Social Platform" },
+  category: "fullstack",
+  stack: ["React Native", "Node.js", "MongoDB", "REST API"],
+  accent: "from-blue-500/35 via-cyan-500/20 to-transparent",
+},
+
+ {
+  title: "AI Escrow Assistant",
+  role: "Full-Stack · AI Agent",
+  company: "Client Engagement",
+  summary:
+    "AI-powered payment assistant for transaction workflows, KYC checks and escrow operations.",
+  metric: { value: "AI Agent", label: "Payments" },
+  category: "ai",
+  stack: ["NestJS", "LLM", "Agents", "Stripe"],
+  accent: "from-indigo-500/40 via-violet-500/25 to-transparent",
+},
+{
+  title: "Academic AI Copilot",
+  role: "Full-Stack · AI Platform",
+  company: "Madi Devs",
+  summary:
+    "AI-driven academic platform connecting student data, learning workflows and intelligent insights.",
+  metric: { value: "AI Copilot", label: "Academics" },
+  category: "ai",
+  stack: ["Next.js", "NestJS", "LLM", "MongoDB"],
+  accent: "from-sky-500/40 via-blue-500/20 to-transparent",
+},
+
+{
+  title: "AI Billing Agent",
+  role: "Full-Stack · AI Automation",
+  company: "Madi Devs",
+  summary:
+    "AI agent automating billing workflows, invoice generation, subscription events and reconciliation.",
+  metric: { value: "AI Agent", label: "Automation" },
+  category: "ai",
+  stack: ["Next.js", "NestJS", "LLM", "PostgreSQL"],
+  accent: "from-amber-500/35 via-orange-500/20 to-transparent",
+},
+
+{
+  title: "Ad Revenue Intelligence Agent",
+  role: "Full-Stack · AI Agent",
+  company: "Right Tail Corporation",
+  summary:
+    "AI agent analyzing Shopify and advertising data to surface revenue, cost and profit insights.",
+  metric: { value: "AI Agent", label: "Revenue" },
+  category: "ai",
+  stack: ["Next.js", "NestJS", "LLM", "Shopify API"],
+  accent: "from-lime-500/35 via-emerald-500/20 to-transparent",
+},
+
+{
+  title: "RAG Ticketing Assistant",
+  role: "Full-Stack · RAG",
+  company: "Right Tail Corporation",
+  summary:
+    "Retrieval-augmented assistant for event data, ticketing workflows and organizer operations.",
+  metric: { value: "RAG", label: "Knowledge" },
+  category: "ai",
+  stack: ["Next.js", "NestJS", "OpenAI", "Vector DB"],
+  accent: "from-cyan-500/35 via-sky-500/20 to-transparent",
+},
+
+{
+  title: "AI Commerce Agent",
+  role: "Full-Stack · AI Automation",
+  company: "Saasifylabs",
+  summary:
+    "AI-powered commerce agent for product discovery, tenant operations and automated business workflows.",
+  metric: { value: "Agentic", label: "Commerce" },
+  category: "ai",
+  stack: ["Next.js", "NestJS", "LLM", "PostgreSQL"],
+  accent: "from-purple-500/35 via-fuchsia-500/20 to-transparent",
+},
 ];
 
 const filters: { id: Category; label: string }[] = [
@@ -219,19 +242,17 @@ export default function CaseStudies() {
                 key={f.id}
                 onClick={() => setActive(f.id)}
                 whileHover={{ y: -2 }}
-                className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs uppercase tracking-[0.2em] transition ${
-                  isActive
+                className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs uppercase tracking-[0.2em] transition ${isActive
                     ? "border-white/40 bg-white text-black"
                     : "border-white/10 bg-white/[0.03] text-white/70 hover:border-white/25 hover:text-white"
-                }`}
+                  }`}
               >
                 {f.label}
                 <span
-                  className={`grid h-5 min-w-5 place-items-center rounded-full px-1.5 text-[10px] ${
-                    isActive
+                  className={`grid h-5 min-w-5 place-items-center rounded-full px-1.5 text-[10px] ${isActive
                       ? "bg-black/10 text-black/70"
                       : "bg-white/10 text-white/60"
-                  }`}
+                    }`}
                 >
                   {count}
                 </span>
@@ -324,8 +345,8 @@ function FeaturedCard({ project }: { project: Project }) {
                 {project.category === "ai"
                   ? "AI · Automation"
                   : project.category === "frontend"
-                  ? "Frontend · 3D"
-                  : "Full-Stack Platform"}
+                    ? "Frontend · 3D"
+                    : "Full-Stack Platform"}
               </span>
             </div>
 
