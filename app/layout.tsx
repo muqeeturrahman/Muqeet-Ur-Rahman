@@ -10,9 +10,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title:
-    "Myqeet Ur Rahman | Full-Stack Engineer & AI Automation Architect",
+    "Muqeet Ur Rahman | Senior Backend & AI Full-Stack Engineer",
   description:
-    "Full-Stack Engineer & AI Automation Architect. Building production SaaS platforms, AI agents, and workflow automation with Next.js, NestJS, Claude AI, and n8n.",
+    "Senior Full-Stack Engineer with 5+ years architecting scalable distributed systems and end-to-end applications for fintech, blockchain and AI. Node.js, NestJS, Python, Golang, PostgreSQL, MongoDB, Kafka, LangChain, LangGraph, RAG, AI Agents, AWS and Kubernetes.",
 };
 
 export default function RootLayout({

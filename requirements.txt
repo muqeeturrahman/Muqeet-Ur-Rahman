@@ -1,0 +1,92 @@
+Muqeet Ur Rahman 
+Karachi, Pakistan • +92-300-2203919 • muqeeturrehman234@gmail.com • linkedin.com/in/muqeet-ur-rahman-141287167 
+PROFESSIONAL SUMMARY 
+Senior Full-Stack Engineer with 5+ years of experience architecting scalable, high-performance distributed systems and end-to
+end full-stack applications for fintech and blockchain platforms, with hands-on production experience building LLM-powered 
+chatbots and AI agents. Track record includes cutting API response times by up to 40%, scaling platforms to 10,000+ daily active 
+users at 99.9% uptime, and reducing production incident MTTR by 40%. Built a Retrieval-Augmented Generation (RAG) chatbot 
+using LangChain and LangGraph for a legal consulting client, enabling natural-language legal Q&A, and developed AI agents to 
+automate advertising performance evaluation. Combines deep backend fundamentals, Python, API architecture 
+(REST/GraphQL), microservices, event-driven systems, and cloud infrastructure (AWS, Docker, Kubernetes) with full-stack front
+end development (React.js, Next.js) and practical LLM integration (GPT, Claude, Gemini), RAG, and agent orchestration 
+experience, bringing production-grade reliability and scalability from front-end to back-end. 
+CORE SKILLS 
+Backend & API Architecture • Full-Stack & End-to-End Application Development (React.js, Next.js) • Scalable Microservices & 
+Distributed Systems • Cloud Infrastructure & DevOps • LLM Integration & Prompt Engineering • RAG-Based Chatbot 
+Development (LangChain, LangGraph)  • Fintech, Payments & Blockchain Systems • Performance Optimization & 
+Observability 
+TECHNICAL SKILLS 
+Languages: TypeScript, JavaScript, Python, Golang 
+AI / LLM Engineering: OpenAI GPT, Anthropic Claude, Google Gemini, Prompt Engineering, Retrieval-Augmented Generation 
+(RAG) 
+Frontend Development: React.js, Next.js 
+Backend Frameworks: Node.js, NestJS, Express.js, FastAPI 
+APIs & Realtime: REST, GraphQL, WebSockets, Socket.IO, Kafka 
+Databases: PostgreSQL, MySQL, MongoDB, Redis 
+Cloud & DevOps: AWS (EC2, S3, Elastic Beanstalk), Docker, Kubernetes, Nginx, CI/CD, Heroku, Vercel, Netlify, Render 
+Blockchain / Web3: On-Chain Monitoring, Transak, ChangeNOW 
+Testing & Tools: Jest, Postman, Swagger/OpenAPI, ESLint 
+PROFESSIONAL EXPERIENCE 
+Codewyse | Technical Team Lead 
+Karachi, Pakistan • Nov 2025 – Present 
+• Built and delivered a full stack Retrieval Augmented Generation (RAG) chatbot using LangChain and LangGraph, developing 
+the AI workflows, backend APIs, data retrieval layer, and user-facing experience for a legal consulting firm, enabling users to 
+ask natural-language legal questions and receive contextual, sourced answers. 
+• Developed AI-powered agents and full-stack workflows to automatically evaluate advertising campaign performance, 
+integrating data processing, backend services, and user-facing reporting to replace a previously manual analysis process. 
+• Designed and developed scalable full-stack applications using Node.js, NestJS, TypeScript, React, PostgreSQL, MySQL, and 
+MongoDB, building responsive user experiences alongside high-performance APIs and data services for financial and 
+blockchain applications. 
+• Engineered Fiat-to-Crypto and Crypto-to-Fiat payment flows by integrating Transak, ChangeNOW, and multiple blockchain 
+networks, enabling seamless digital asset conversion. 
+• Built double-entry ledger systems, transaction pipelines, wallet management services, and reconciliation workflows, 
+ensuring 100% financial accuracy and full auditability. 
+• Delivered secure RESTful and GraphQL APIs with JWT authentication, RBAC authorization, rate limiting, and real-time 
+transaction monitoring. 
+• Optimized database performance through advanced indexing, query tuning, and schema redesign, cutting API response 
+times by 35% and reducing infrastructure costs. 
+• Deployed production workloads on AWS Elastic Beanstalk with auto-scaling, health monitoring, and zero-downtime rolling 
+deployments. 
+• Integrated smart contract interactions and on-chain transaction monitoring to support Web3 payment and asset
+management features. 
+• Implemented Redis caching, BullMQ job queues, and event-driven architecture, boosting throughput and cutting 
+processing bottlenecks by 50%. 
+• Established end-to-end observability  structured logging, metrics, and alerting  reducing mean time to resolution 
+(MTTR) for production incidents by 40%. 
+LaunchBox | Backend Engineer 
+Karachi, Pakistan • Nov 2024 – Dec 2025 
+• Designed and optimized RESTful and GraphQL APIs using Node.js, Express.js, NestJS, PostgreSQL, and MongoDB, reducing 
+data retrieval time by 40%. 
+• Partnered with frontend engineers to redesign API contracts and eliminate redundant requests, cutting development cycle 
+time by 20%. 
+• Automated payment processing by integrating Stripe, Google Pay, and Apple Pay, supporting 500+ monthly transactions 
+and reducing manual intervention by 30%. 
+• Containerized all services with Docker, standardizing environments across development, staging, and production. 
+• Orchestrated workloads with Kubernetes — service discovery, load balancing, horizontal pod autoscaling, and automated 
+rollback — enabling zero-downtime deployments. 
+Jumppace Pvt Ltd | Software Engineer 
+Karachi, Pakistan • Jan 2023 – Oct 2024 
+• Built full-stack applications using Next.js, React, TypeScript, Node.js, NestJS, and GraphQL, including real-time features 
+with Socket.IO and WebSockets for thousands of concurrent users. 
+• Developed REST and GraphQL APIs and integrated third-party services including Google Meet and Stripe, connecting 
+frontend workflows with backend services end to end. 
+• Optimized frontend data fetching and Prisma/TypeORM queries across PostgreSQL and MongoDB, reducing query execution 
+time by up to 45%. 
+• Automated CI/CD pipelines and deployed containerized applications on AWS using Docker, Nginx, and Redis, reducing 
+deployment time by 60%. 
+Qist Bazaar | Associate Software Engineer 
+Karachi, Pakistan • Jan 2021 – Dec 2022 
+• Developed robust RESTful APIs in Node.js for a high-traffic e-commerce platform serving 10,000+ daily active users at 
+99.9% uptime. 
+• Implemented JWT authentication, role-based access control (RBAC), and advanced API security hardening, eliminating 
+critical vulnerabilities. 
+• Applied black-box and regression testing methodologies, improving defect detection and software reliability by 20%. 
+• Refactored microservices within a legacy monolithic architecture, reducing service latency and improving throughput 
+under peak load. 
+
+
+mention python,node,nest,react,n8n automation,microservices,indexing ,sharding,replication ai agents training,vector databases,golang,
+ i want to make it more focused for backend technologies,databases,RAG pipelines,scalable backend handling 10,000+ requests for senior backend and ai full stack engineer
+
+
+change the experience section according to my experience section ,in skills and expertise show backend first then frontend and all add the backend technologies,databadses,cloud from this,also on the page top where my name is written in big letters need spaces after Ur ,also the websiter should be responsive on mobile too

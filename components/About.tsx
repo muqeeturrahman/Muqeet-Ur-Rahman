@@ -18,86 +18,66 @@ import {
 import SectionHeader from "./SectionHeader";
 
 const coreDomains = [
-  { icon: Bot, label: "AI Agents & Claude AI" },
-  { icon: Workflow, label: "n8n Workflow Automation" },
-  { icon: Layers, label: "System & API Architecture" },
-  { icon: Database, label: "Database Design & Indexing" },
-  { icon: ShieldCheck, label: "Security Hardening & RBAC" },
-  { icon: Users, label: "Multi-Tenant SaaS Engineering" },
+  { icon: Server, label: "Distributed Backend Architecture" },
+  { icon: Database, label: "DB Indexing, Sharding & Replication" },
+  { icon: Bot, label: "LLMs, RAG & AI Agent Orchestration" },
+  { icon: Workflow, label: "Event-Driven Systems & n8n" },
+  { icon: ShieldCheck, label: "API Security, JWT & RBAC" },
+  { icon: Users, label: "Fintech, Payments & Blockchain" },
 ];
 
 const stats = [
-  { value: "13+", label: "production systems shipped" },
-  { value: "6+", label: "AI automation systems deployed" },
-  { value: "80%+", label: "AI auto-resolution rate" },
-  { value: "20+", label: "clients across 8+ industries" },
+  { value: "40%", label: "API latency reduction (indexing + query tuning)" },
+  { value: "10k+", label: "daily active users at 99.9% uptime" },
+  { value: "40%", label: "MTTR reduction via observability" },
+  { value: "50%", label: "throughput lift via queues + caching" },
 ];
 
 const engineeringCards = [
   {
-    icon: Sparkles,
-    title: "AI Agents & Automation",
-    body: "Autonomous agents and workflow pipelines built with Claude AI, n8n, ElevenLabs and third-party APIs.",
+    icon: Server,
+    title: "Scalable Backend",
+    body: "Node.js, NestJS, Python, FastAPI and Golang services handling 10k+ DAU with 99.9% uptime and horizontal scalability.",
+    tags: ["Node.js", "NestJS", "Python", "Golang", "FastAPI"],
+  },
+  {
+    icon: Database,
+    title: "Database Performance",
+    body: "Advanced indexing, query tuning, sharding and replication across PostgreSQL, MongoDB, MySQL and Redis.",
     tags: [
-      "Claude AI Integration",
-      "n8n Workflow Orchestration",
-      "Voice AI (ElevenLabs + Twilio)",
-      "Shopify / Gmail / CRM Automation",
+      "Indexing & Tuning",
+      "Sharding",
+      "Replication",
+      "PostgreSQL / Mongo / Redis",
     ],
+  },
+  {
+    icon: Sparkles,
+    title: "AI & RAG Pipelines",
+    body: "LLM integrations, LangChain / LangGraph RAG chatbots, AI agents, vector databases and n8n workflow automation.",
+    tags: ["LangChain", "LangGraph", "Vector DBs", "AI Agents", "n8n"],
   },
   {
     icon: Layers,
-    title: "SaaS Architecture",
-    body: "Multi-tenant platforms with subscription billing, RBAC, escrow payments and scalable infrastructure.",
-    tags: [
-      "Multi-Tenant Architecture",
-      "Escrow & Payment Systems",
-      "Role-Based Access Control",
-      "Admin Dashboards",
-    ],
+    title: "Microservices & Events",
+    body: "Event-driven architectures with Kafka, BullMQ queues, WebSockets and message-based service communication.",
+    tags: ["Microservices", "Kafka", "BullMQ", "WebSockets", "Event-Driven"],
   },
   {
     icon: Rocket,
-    title: "Next.js Full-Stack",
-    body: "High-performance apps with App Router, RSC, ISR/SSR strategies, API design and edge-optimized delivery.",
-    tags: [
-      "App Router & RSC",
-      "SSR / SSG / ISR",
-      "API Design & Versioning",
-      "Edge Caching & CDN",
-    ],
-  },
-  {
-    icon: Server,
-    title: "Backend & APIs",
-    body: "REST and GraphQL services on NestJS/Express with webhooks, background jobs and enterprise-grade security.",
-    tags: [
-      "NestJS Microservices",
-      "Webhook Architecture",
-      "Background Job Queues",
-      "API Gateway Patterns",
-    ],
+    title: "Cloud & DevOps",
+    body: "AWS Elastic Beanstalk, Docker, Kubernetes and CI/CD pipelines with zero-downtime deployments and auto-scaling.",
+    tags: ["AWS", "Docker", "Kubernetes", "Nginx", "CI/CD"],
   },
   {
     icon: KeyRound,
-    title: "Security Engineering",
-    body: "CSRF/XSS protection, CSP headers, rate limiting, input sanitization and detailed audit trails.",
+    title: "Fintech & Blockchain",
+    body: "Fiat↔crypto payment flows, double-entry ledgers, wallet services and on-chain transaction monitoring.",
     tags: [
-      "CSRF & XSS Protection",
-      "Security Headers",
-      "Rate Limiting",
-      "Audit Logging",
-    ],
-  },
-  {
-    icon: Gauge,
-    title: "Performance & SEO",
-    body: "Core Web Vitals tuning, database indexing, caching strategies, structured data and SEO architecture.",
-    tags: [
-      "Core Web Vitals",
-      "Database Indexing & Caching",
-      "Structured Data & Schema",
-      "Sitemap & Canonical Mgmt",
+      "Payments (Stripe / Transak)",
+      "Double-Entry Ledgers",
+      "On-Chain Monitoring",
+      "KYC",
     ],
   },
 ];
@@ -107,10 +87,10 @@ export default function About() {
     <section
       id="about"
       aria-label="About"
-      className="relative w-full overflow-hidden bg-black py-20 sm:py-24 lg:py-28"
+      className="relative w-full overflow-hidden bg-black py-16 sm:py-20 lg:py-28"
     >
       <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
         <SectionHeader
           eyebrow="About Me"
           title="Engineering Partner,"
@@ -127,21 +107,22 @@ export default function About() {
             className="space-y-6"
           >
             <p className="text-white/75 leading-relaxed">
-              I&apos;m <span className="text-white">Myqeet Ur Rahman</span>, a
-              full-stack engineer and AI automation architect with 4+ years of
-              experience shipping production-grade platforms and intelligent
-              automation systems. My work spans database schemas, API contracts,
-              AI agent pipelines and end-to-end workflow orchestration.
+              I&apos;m <span className="text-white">Muqeet Ur Rahman</span>, a
+              senior full-stack engineer with 5+ years architecting scalable,
+              high-performance distributed systems for fintech, blockchain and
+              AI. I work from database internals up through API contracts,
+              AI-agent pipelines and cloud infrastructure.
             </p>
             <p className="text-white/60 leading-relaxed">
-              I focus on two overlapping domains — building autonomous agents
-              with Claude AI, n8n, and voice-AI stacks like ElevenLabs + Twilio,
-              and shipping full-stack products with Next.js, NestJS, TypeScript
-              and MongoDB / PostgreSQL.
+              Deep backend fundamentals in Node.js, NestJS, Python, FastAPI and
+              Golang — with production LLM integration (GPT, Claude, Gemini),
+              RAG chatbots built on LangChain and LangGraph, and AI agents for
+              workflow automation. Shipped systems handling 10,000+ daily users
+              at 99.9% uptime.
             </p>
 
             <div className="flex flex-wrap items-center gap-2 pt-2">
-              <span className="chip">Islamabad, Pakistan</span>
+              <span className="chip">Karachi, Pakistan</span>
               <span className="text-white/30">•</span>
               <span className="chip">Available for Remote Engagements</span>
             </div>

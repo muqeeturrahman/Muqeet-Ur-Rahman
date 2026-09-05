@@ -211,54 +211,58 @@ export default function CaseStudies() {
     <section
       id="projects"
       aria-label="Case Studies"
-      className="relative w-full overflow-hidden py-24 sm:py-28 lg:py-32"
+      className="relative w-full overflow-hidden py-20 sm:py-24 lg:py-32"
     >
       <div className="absolute inset-0 grid-bg opacity-15 pointer-events-none" />
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
         <SectionHeader
           eyebrow="Case Studies"
           title="Featured"
           accent="Work"
-          subtitle="From AI-powered automation agents to production-scale platforms — systems engineered for real-world impact."
+          subtitle="Production platforms across fintech, blockchain, commerce and AI — systems engineered for real-world scale."
         />
 
-        <div className="mb-10 flex flex-wrap items-center justify-center gap-6">
+        <div className="mb-10 flex flex-wrap items-center justify-center gap-6 sm:gap-8">
           <Metric value={String(projects.length)} label="Projects" />
-          <span className="h-8 w-px bg-white/10" />
+          <span className="hidden h-8 w-px bg-white/10 sm:block" />
           <Metric value={`${totalTech}+`} label="Technologies" />
-          <span className="h-8 w-px bg-white/10" />
-          <Metric value="4+" label="Years Shipping" />
+          <span className="hidden h-8 w-px bg-white/10 sm:block" />
+          <Metric value="5+" label="Years Shipping" />
         </div>
 
-        <div className="mx-auto mb-12 flex max-w-2xl flex-wrap items-center justify-center gap-2">
-          {filters.map((f) => {
-            const count =
-              f.id === "all"
-                ? projects.length
-                : projects.filter((p) => p.category === f.id).length;
-            const isActive = active === f.id;
-            return (
-              <motion.button
-                key={f.id}
-                onClick={() => setActive(f.id)}
-                whileHover={{ y: -2 }}
-                className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs uppercase tracking-[0.2em] transition ${isActive
-                    ? "border-white/40 bg-white text-black"
-                    : "border-white/10 bg-white/[0.03] text-white/70 hover:border-white/25 hover:text-white"
+        <div className="-mx-4 mb-10 overflow-x-auto no-scrollbar px-4 sm:mx-0 sm:overflow-visible sm:px-0">
+          <div className="mx-auto flex w-max max-w-none items-center gap-2 sm:w-auto sm:max-w-2xl sm:flex-wrap sm:justify-center">
+            {filters.map((f) => {
+              const count =
+                f.id === "all"
+                  ? projects.length
+                  : projects.filter((p) => p.category === f.id).length;
+              const isActive = active === f.id;
+              return (
+                <motion.button
+                  key={f.id}
+                  onClick={() => setActive(f.id)}
+                  whileHover={{ y: -2 }}
+                  className={`inline-flex shrink-0 items-center gap-2 rounded-full border px-3 py-2 text-[10px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.2em] transition ${
+                    isActive
+                      ? "border-white/40 bg-white text-black"
+                      : "border-white/10 bg-white/[0.03] text-white/70 hover:border-white/25 hover:text-white"
                   }`}
-              >
-                {f.label}
-                <span
-                  className={`grid h-5 min-w-5 place-items-center rounded-full px-1.5 text-[10px] ${isActive
-                      ? "bg-black/10 text-black/70"
-                      : "bg-white/10 text-white/60"
-                    }`}
                 >
-                  {count}
-                </span>
-              </motion.button>
-            );
-          })}
+                  {f.label}
+                  <span
+                    className={`grid h-5 min-w-5 place-items-center rounded-full px-1.5 text-[10px] ${
+                      isActive
+                        ? "bg-black/10 text-black/70"
+                        : "bg-white/10 text-white/60"
+                    }`}
+                  >
+                    {count}
+                  </span>
+                </motion.button>
+              );
+            })}
+          </div>
         </div>
 
         <AnimatePresence mode="wait">
@@ -334,14 +338,14 @@ function FeaturedCard({ project }: { project: Project }) {
           className="absolute inset-0 bg-[radial-gradient(600px_circle_at_var(--x,50%)_var(--y,0),rgba(255,255,255,0.06),transparent_60%)]"
         />
 
-        <div className="relative grid gap-8 p-8 sm:p-10 lg:grid-cols-[1.2fr_1fr] lg:p-14">
+        <div className="relative grid gap-6 p-6 sm:gap-8 sm:p-10 lg:grid-cols-[1.2fr_1fr] lg:p-14">
           <div>
-            <div className="mb-4 flex items-center gap-3">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-white/60">
+            <div className="mb-4 flex flex-wrap items-center gap-2 sm:gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[9px] sm:text-[10px] uppercase tracking-[0.24em] sm:tracking-[0.3em] text-white/60">
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400" />
                 Featured Project
               </span>
-              <span className="text-[10px] uppercase tracking-[0.3em] text-white/40">
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.24em] sm:tracking-[0.3em] text-white/40">
                 {project.category === "ai"
                   ? "AI · Automation"
                   : project.category === "frontend"
@@ -350,7 +354,7 @@ function FeaturedCard({ project }: { project: Project }) {
               </span>
             </div>
 
-            <h3 className="text-4xl font-light tracking-tight sm:text-5xl">
+            <h3 className="text-3xl font-light tracking-tight sm:text-4xl lg:text-5xl">
               {project.title}
             </h3>
             <div className="mt-2 text-sm text-white/60">
@@ -372,19 +376,19 @@ function FeaturedCard({ project }: { project: Project }) {
               ))}
             </div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-2 sm:mt-8 sm:gap-3">
               {project.liveUrl && (
                 <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black transition hover:bg-white/85"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm font-medium text-black transition hover:bg-white/85"
                 >
                   Live Site
                   <ExternalLink size={14} />
                 </a>
               )}
-              <button className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-5 py-2.5 text-sm text-white/85 backdrop-blur hover:bg-white/[0.08] transition">
+              <button className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-4 sm:px-5 py-2 sm:py-2.5 text-xs sm:text-sm text-white/85 backdrop-blur hover:bg-white/[0.08] transition">
                 Read Case Study
                 <ArrowUpRight size={14} />
               </button>
@@ -398,16 +402,16 @@ function FeaturedCard({ project }: { project: Project }) {
             />
             <div
               style={{ transform: "translateZ(40px)" }}
-              className="relative flex h-full flex-col justify-between rounded-2xl border border-white/10 bg-neutral-950/60 p-6 backdrop-blur"
+              className="relative flex h-full flex-col justify-between rounded-2xl border border-white/10 bg-neutral-950/60 p-5 sm:p-6 backdrop-blur"
             >
               <div>
-                <div className="text-[10px] uppercase tracking-[0.3em] text-white/40">
+                <div className="text-[9px] sm:text-[10px] uppercase tracking-[0.24em] sm:tracking-[0.3em] text-white/40">
                   Signature Metric
                 </div>
-                <div className="mt-2 bg-gradient-to-br from-white via-violet-200 to-fuchsia-300 bg-clip-text text-5xl font-extralight text-transparent sm:text-6xl">
+                <div className="mt-2 bg-gradient-to-br from-white via-violet-200 to-fuchsia-300 bg-clip-text text-3xl font-extralight text-transparent sm:text-5xl lg:text-6xl">
                   {project.metric.value}
                 </div>
-                <div className="mt-1 text-sm text-white/60">
+                <div className="mt-1 text-xs sm:text-sm text-white/60">
                   {project.metric.label}
                 </div>
               </div>
