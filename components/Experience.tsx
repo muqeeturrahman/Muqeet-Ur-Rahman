@@ -26,19 +26,19 @@ interface TimelineItem {
 
 const timeline: TimelineItem[] = [
   {
-    date: "Nov 2025 — Present",
+    date: "Nov 2025 - Present",
     title: "Technical Team Lead",
     company: "Codewyse",
     location: "Karachi, Pakistan",
     summary:
-      "Leading full-stack delivery for fintech, blockchain and AI workloads — from architecture through production observability.",
+      "Leading full-stack delivery for fintech, blockchain and AI workloads, from architecture through production observability.",
     bullets: [
       "Shipped a full-stack RAG chatbot with LangChain + LangGraph for a legal-consulting client, exposing natural-language Q&A over sourced legal documents.",
       "Built AI agents that automate advertising-performance evaluation end-to-end, replacing a manual analyst workflow.",
       "Engineered Fiat↔Crypto payment flows integrating Transak, ChangeNOW and multiple chains, with double-entry ledger, wallets and reconciliation.",
-      "Optimized DB performance via indexing, query tuning and schema redesign — 35% API latency reduction, lower infra spend.",
+      "Optimized DB performance via indexing, query tuning and schema redesign, achieving 35% API latency reduction and lower infra spend.",
       "Deployed to AWS Elastic Beanstalk with auto-scaling, health checks and zero-downtime rolling releases; Redis + BullMQ + event-driven cut processing bottlenecks by 50%.",
-      "Established end-to-end observability (structured logs, metrics, alerts) — 40% MTTR reduction on production incidents.",
+      "Established end-to-end observability (structured logs, metrics, alerts), delivering a 40% MTTR reduction on production incidents.",
     ],
     stack: [
       "Node.js",
@@ -57,7 +57,7 @@ const timeline: TimelineItem[] = [
     current: true,
   },
   {
-    date: "Nov 2024 — Dec 2025",
+    date: "Nov 2024 - Dec 2025",
     title: "Backend Engineer",
     company: "LaunchBox",
     location: "Karachi, Pakistan",
@@ -65,8 +65,8 @@ const timeline: TimelineItem[] = [
       "Designed high-throughput REST/GraphQL APIs, containerized services and orchestrated zero-downtime deployments.",
     bullets: [
       "Cut data-retrieval time by 40% with hardened REST + GraphQL APIs on Node.js/Express/NestJS over PostgreSQL and MongoDB.",
-      "Redesigned API contracts with frontend to eliminate redundant round-trips — 20% shorter dev cycle time.",
-      "Automated payments via Stripe, Google Pay and Apple Pay — 500+ monthly transactions with 30% less manual intervention.",
+      "Redesigned API contracts with frontend to eliminate redundant round-trips, cutting dev cycle time by 20%.",
+      "Automated payments via Stripe, Google Pay and Apple Pay, supporting 500+ monthly transactions with 30% less manual intervention.",
       "Kubernetes orchestration: service discovery, load balancing, horizontal pod autoscaling and automated rollback for zero-downtime deploys.",
     ],
     stack: [
@@ -82,7 +82,7 @@ const timeline: TimelineItem[] = [
     icon: Terminal,
   },
   {
-    date: "Jan 2023 — Oct 2024",
+    date: "Jan 2023 - Oct 2024",
     title: "Software Engineer",
     company: "Jumppace Pvt Ltd",
     location: "Karachi, Pakistan",
@@ -91,8 +91,8 @@ const timeline: TimelineItem[] = [
     bullets: [
       "Delivered Next.js + NestJS applications with Socket.IO/WebSockets supporting thousands of concurrent users.",
       "Integrated Google Meet, Stripe and other third-party services across REST and GraphQL surfaces.",
-      "Tuned Prisma/TypeORM queries across PostgreSQL and MongoDB — up to 45% faster execution.",
-      "Automated CI/CD pipelines with Docker + Nginx + Redis on AWS — 60% faster deployments.",
+      "Tuned Prisma/TypeORM queries across PostgreSQL and MongoDB for up to 45% faster execution.",
+      "Automated CI/CD pipelines with Docker, Nginx and Redis on AWS, delivering 60% faster deployments.",
     ],
     stack: [
       "Next.js",
@@ -107,7 +107,7 @@ const timeline: TimelineItem[] = [
     icon: Briefcase,
   },
   {
-    date: "Jan 2021 — Dec 2022",
+    date: "Jan 2021 - Dec 2022",
     title: "Associate Software Engineer",
     company: "Qist Bazaar",
     location: "Karachi, Pakistan",
@@ -115,9 +115,9 @@ const timeline: TimelineItem[] = [
       "Engineered high-traffic e-commerce APIs, hardened security, and refactored legacy microservices for reliability.",
     bullets: [
       "Built RESTful Node.js APIs serving 10,000+ daily active users at 99.9% uptime.",
-      "Rolled out JWT auth, role-based access control and layered API security — eliminated critical vulnerabilities.",
-      "Applied black-box + regression testing — 20% higher defect detection and reliability.",
-      "Refactored microservices out of a legacy monolith — lower latency, higher throughput under peak load.",
+      "Rolled out JWT auth, role-based access control and layered API security, eliminating critical vulnerabilities.",
+      "Applied black-box and regression testing methodologies for 20% higher defect detection and reliability.",
+      "Refactored microservices out of a legacy monolith, reducing latency and boosting throughput under peak load.",
     ],
     stack: ["Node.js", "REST", "JWT", "RBAC", "Microservices"],
     icon: Code2,
@@ -137,7 +137,7 @@ export default function Experience() {
           eyebrow="Journey"
           title="Professional"
           accent="Experience"
-          subtitle="5+ years across fintech, blockchain and AI — architecting distributed backends, shipping AI agents, and hardening systems for production scale."
+          subtitle="5+ years across fintech, blockchain and AI. Architecting distributed backends, shipping AI agents, and hardening systems for production scale."
         />
 
         <div className="mb-8 flex flex-wrap items-center justify-center gap-6 sm:gap-8">
