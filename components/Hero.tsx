@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ArrowRight, User2, Sparkles } from "lucide-react";
+import { ArrowRight, User2, Sparkles, Play } from "lucide-react";
 import { useRef } from "react";
 
 const NAME_FIRST = "Muqeet";
@@ -77,11 +77,13 @@ function MagneticButton({
   href,
   variant = "outline",
   ariaLabel,
+  external = false,
 }: {
   children: React.ReactNode;
   href: string;
-  variant?: "solid" | "outline";
+  variant?: "solid" | "outline" | "loom";
   ariaLabel?: string;
+  external?: boolean;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
   const x = useMotionValue(0);
@@ -100,24 +102,35 @@ function MagneticButton({
     y.set(0);
   };
 
+  const classForVariant =
+    variant === "solid"
+      ? "group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-5 sm:px-6 py-2.5 sm:py-3 text-sm font-medium text-black shadow-[0_20px_50px_-15px_rgba(255,255,255,0.35)] transition-transform"
+      : variant === "loom"
+      ? "group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-red-500/30 bg-red-500/10 px-5 sm:px-6 py-2.5 sm:py-3 text-sm text-red-100 backdrop-blur-md hover:border-red-400/50 hover:bg-red-500/15 shadow-[0_10px_40px_-15px_rgba(239,68,68,0.5)] transition"
+      : "group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-5 sm:px-6 py-2.5 sm:py-3 text-sm text-white/85 backdrop-blur-md hover:bg-white/[0.08] hover:border-white/25 transition";
+
   return (
     <motion.a
       ref={ref}
       href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
       aria-label={ariaLabel}
       onMouseMove={handleMove}
       onMouseLeave={reset}
       style={{ x: sx, y: sy }}
-      className={
-        variant === "solid"
-          ? "group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-white px-5 sm:px-6 py-2.5 sm:py-3 text-sm font-medium text-black shadow-[0_20px_50px_-15px_rgba(255,255,255,0.35)] transition-transform"
-          : "group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.03] px-5 sm:px-6 py-2.5 sm:py-3 text-sm text-white/85 backdrop-blur-md hover:bg-white/[0.08] hover:border-white/25 transition"
-      }
+      className={classForVariant}
     >
       {variant === "solid" && (
         <span
           aria-hidden
           className="absolute inset-0 -translate-x-full bg-gradient-to-r from-violet-300 via-fuchsia-300 to-indigo-300 opacity-0 transition duration-700 group-hover:translate-x-0 group-hover:opacity-100"
+        />
+      )}
+      {variant === "loom" && (
+        <span
+          aria-hidden
+          className="absolute inset-0 -translate-x-full bg-gradient-to-r from-red-500/30 via-orange-500/20 to-red-500/30 opacity-0 transition duration-700 group-hover:translate-x-0 group-hover:opacity-100"
         />
       )}
       <span className="relative z-10 inline-flex items-center gap-2">
@@ -258,7 +271,7 @@ export default function Hero() {
             className="mt-5 mx-auto max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-white/70 lg:mx-0"
           >
             5+ years architecting scalable distributed systems, microservices
-            and event-driven backends — with production LLM, RAG and AI-agent
+            and event-driven backends, with production LLM, RAG and AI-agent
             pipelines on top. Handling 10,000+ daily users at 99.9% uptime.
           </motion.p>
 
@@ -279,6 +292,20 @@ export default function Hero() {
             <MagneticButton href="#about" ariaLabel="Learn more about Muqeet">
               <User2 size={14} />
               About Me
+            </MagneticButton>
+            <MagneticButton
+              href="https://www.loom.com/share/539e00b89a674bf28afc541b650f769d"
+              external
+              ariaLabel="Watch Loom introduction video"
+              variant="loom"
+            >
+              <span className="relative flex h-4 w-4 items-center justify-center">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400/60 opacity-75" />
+                <span className="relative grid h-4 w-4 place-items-center rounded-full bg-red-500">
+                  <Play size={8} className="translate-x-[1px] fill-white text-white" />
+                </span>
+              </span>
+              Watch Loom Intro
             </MagneticButton>
           </motion.div>
 
@@ -302,7 +329,7 @@ export default function Hero() {
               ))}
             </div>
             <div className="text-xs text-white/55">
-              <span className="text-white">Fintech · Blockchain · AI</span> —
+              <span className="text-white">Fintech · Blockchain · AI</span> ·
               production at scale
             </div>
           </motion.div>

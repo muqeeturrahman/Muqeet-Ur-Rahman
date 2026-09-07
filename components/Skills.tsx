@@ -167,7 +167,7 @@ export default function Skills() {
           accent="Expertise"
           subtitle={
             <>
-              A senior backend + AI-engineering toolkit — from microservices
+              A senior backend and AI-engineering toolkit, from microservices
               and database internals to RAG pipelines and cloud orchestration.
             </>
           }

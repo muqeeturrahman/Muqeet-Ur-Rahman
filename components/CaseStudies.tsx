@@ -219,7 +219,7 @@ export default function CaseStudies() {
           eyebrow="Case Studies"
           title="Featured"
           accent="Work"
-          subtitle="Production platforms across fintech, blockchain, commerce and AI — systems engineered for real-world scale."
+          subtitle="Production platforms across fintech, blockchain, commerce and AI. Systems engineered for real-world scale."
         />
 
         <div className="mb-10 flex flex-wrap items-center justify-center gap-6 sm:gap-8">
