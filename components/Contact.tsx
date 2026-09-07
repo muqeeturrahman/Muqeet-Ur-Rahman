@@ -105,7 +105,7 @@ export default function Contact() {
           eyebrow="Get In Touch"
           title="Let's Build"
           accent="Something Real"
-          subtitle="Available for senior full-stack and AI-engineering engagements. Fastest reply via WhatsApp — expect a response the same day."
+          subtitle="Available for senior full-stack and AI-engineering engagements. Fastest reply via WhatsApp. Expect a response the same day."
         />
 
         <div className="mb-10 flex flex-wrap items-center justify-center gap-3">
@@ -141,7 +141,7 @@ export default function Contact() {
               that&apos;s buckling under load?
             </p>
             <p className="mt-2 text-sm text-white/50">
-              Let&apos;s scope it out — I&apos;ll respond with concrete next steps.
+              Let&apos;s scope it out and I&apos;ll respond with concrete next steps.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -315,7 +315,7 @@ function ChannelCard({ channel, index }: { channel: Channel; index: number }) {
           <div className="mt-4 flex items-center justify-between text-[11px] uppercase tracking-[0.22em] text-white/40">
             <span>
               {channel.id === "whatsapp"
-                ? "Fastest — same-day reply"
+                ? "Fastest · same-day reply"
                 : channel.id === "email"
                 ? "Detailed briefs welcome"
                 : channel.id === "github"

@@ -121,7 +121,7 @@ export default function About() {
           eyebrow="About Me"
           title="Engineering Partner,"
           accent="Not Just a Developer"
-          subtitle="Five years of shipping backend + AI at scale — turning ambiguous briefs into architected systems that ship, scale and stay up."
+          subtitle="Five years of shipping backend and AI at scale, turning ambiguous briefs into architected systems that ship, scale and stay up."
         />
 
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
@@ -143,7 +143,7 @@ export default function About() {
 
             <RevealParagraph delay={0.15} muted>
               Deep backend fundamentals in Node.js, NestJS, Python, FastAPI and
-              Golang — with production LLM integration (GPT, Claude, Gemini),
+              Golang, with production LLM integration (GPT, Claude, Gemini),
               RAG chatbots built on LangChain and LangGraph, and AI agents for
               workflow automation. Shipped systems handling 10,000+ daily
               users at 99.9% uptime.
